@@ -1,0 +1,60 @@
+var img;
+var C;
+
+function preload(){
+  img = loadImage("Captain_Falcon_SSB4.png");
+}
+function setup() {
+  createCanvas(400, 400);
+  C = new Captain();
+}
+
+function draw() {
+  background(220);
+  C.mostrar();
+  if(keyIsPressed && keyCode == RIGHT_ARROW){
+    C.derecha();
+  }
+  if(keyIsPressed && keyCode == LEFT_ARROW){
+    C.izquierda();
+    
+  if(keyIsPressed && keyCode == UP_ARROW){
+    C.arriba();
+  }
+    
+  if(keyIsPressed && keyCode == DOWN_ARROW){
+    C.abajo();
+  }
+    
+  }    
+}
+class Captain {
+  constructor() {
+    this.x = width / 2;
+    this.y = height / 2;
+
+  }
+
+  mostrar() {
+    imageMode(CENTER);
+    image(img, this.x, this.y, 200, 200);
+
+  }
+
+  derecha() {
+    this.x++;
+  }
+
+  izquierda() {
+    this.x--;
+  }
+
+  arriba() {
+    this.y--;
+  }
+
+  abajo() {
+    this.y++;
+  }
+
+}
